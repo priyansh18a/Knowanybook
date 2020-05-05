@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+  <div class="row" >
+    <div >
+          {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
+    {% endif %}
+    {% endwith %}
+  </div>
+    <div class="col-sm-8 book-main">
+      {%for book in Books %}
+    <a href="{{ url_for('book_page', isbn=book.isbn) }}" > <div class="book">
+          <h2 class="book-title">{{book.title}}</h2>
+          <p>{{book.isbn}}</p>
+          <p>{{book.author}}</p>
+          <p>{{book.year}}</p>
+        </div></a>
+        {% endfor %}
+      </div>
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="sidebar-module sidebar-module-inset">
+          <h4 style="margin-left:60px">Search</h4>
+          <form  class="form-inline" method="GET" action="search">
+             <div class="form-group">
+               <label for="query"> Name </label>
+                <input type="text" class="form-control" name="query" id="query">
+               </div>
+               <button type="submit" class="btn btn-primary extra">Search</button>
+             </form>
+          </div>
+     </div><!-- /.blog-sidebar
+
+-->
+
+</div><!-- 1.row -->
+
+{% endblock %}

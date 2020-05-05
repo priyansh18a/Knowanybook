@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+      <div >
+            {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          <div class="notification is-danger">
+              {{ messages[0] }}
+          </div>
+      {% endif %}
+      {% endwith %}
+    </div>
+    <div>
+      <h2 class="book-title">Title:{{Books.title}}</h2>
+      <p>Author:{{Books.author}}</p>
+      <p>Year:{{Books.year}}</p>
+      <p>ISBN:{{Books.isbn}}</p>
+      <p>Goodreads average Rating:{{average_rating}}</p>
+      <p>Goodreads rating Count:{{work_ratings_count}}</p>
+      <h4>User Review</h4>
+      <ul>
+      {% for review in reviews %}
+          <li>{{ review.review_data }}</li>
+      {% else %}
+          <li>No review</li>
+      {% endfor %}
+    </ul>
+    </div>
+
+    <div>
+    <form action="/books/{{Books.id}}" method="POST">
+      <h4>Rate Your Experience With Book</h4>
+    <div class="form-group">
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="Rating" id="inlineRadio1" value="1" required>
+    <label class="form-check-label" for="inlineRadio1">1</label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="Rating" id="inlineRadio2" value="2" required>
+    <label class="form-check-label" for="inlineRadio2">2</label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="Rating" id="inlineRadio3" value="3" required>
+    <label class="form-check-label" for="inlineRadio3">3</label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="Rating" id="inlineRadio4" value="4" required>
+    <label class="form-check-label" for="inlineRadio4">4</label>
+    </div>
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="Rating" id="inlineRadio5" value="5" required>
+    <label class="form-check-label" for="inlineRadio5">5</label>
+    </div>
+   </div>
+    <div class="form-group">
+    <label for="opinion" style="font-weight:bold;font-size:20px">Opinion About The Book</label>
+    <textarea class="form-control" rows="5" name="opinion" id="opinion" ></textarea>
+    </div>
+       <button type="submit" class="btn btn-primary extra">Submit</button>
+    </form>
+    </div>
+
+{% endblock %}
