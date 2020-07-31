@@ -1,20 +1,30 @@
-# Project 1
-Made a website 'KnowAnyBook'
-webste is designed keeping in mind all the requiremnent.
-It uses three sql table which are hosted in heroku,goodreads api.
+# Knowanybook
 
-Home page show website name and desciption
-on clicking Books link in navbar you will redirected to book database with search function.
-You need to login to see book database.
-On clicking the  any book you will reach book detail page where you can submit your rating and review and also can see review by other people on that book.
+### A project of Harvard University Course
 
-application.py contain main programme
-module.py contain tables
-create.py contain function to create table.
-templates folder contain all html file
-
-website work perfectly in desktop/laptop.
+This project is part of web programming with python and javascript course by Harvard University. This project gives the user detailed info about books and recent reviews, and users can give his/her rating to the book. Currently, this project has access to a 5000 book database. 
+This project is made using **Flask Framework**.  To store book data, it uses **Heroku SQL Database**. It uses **Flaskwhooshalchemyplus** library for search functionality and **Goodreads Api** for fetching the latest rating of the book.
 
 
+[Project Working Video](https://youtu.be/UkZo1XRx6V8)
 
-Web Programming with Python and JavaScript
+
+### Portal Screenshots:
+
+#BookListPage:
+![Menu](Media/BookList.png)
+
+#AfterQuery:
+![Login](Media/SearchFilter.png)
+
+#BookDetailPage:
+![Login](Media/BookDetails.png)
+
+#LoginPage:
+![Login](Media/Login.png)
+
+#SignupPage:
+![Login](Media/Signup.png)
+
+
+
